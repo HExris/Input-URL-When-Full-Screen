@@ -1,0 +1,41 @@
+{
+    "name": "FREEDOM",
+    "version": "1.0",
+    "description": "An Extension make you can input url when you use full screen mode by HExris!",
+    "permissions": [
+        "activeTab",
+        "declarativeContent",
+        "storage"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "page_action": {
+        "default_popup": "./view/popup/popup.html",
+        "default_icon": {
+            "16": "./images/magnifier-bacteria@1x.png",
+            "32": "./images/magnifier-bacteria@2x.png",
+            "48": "./images/magnifier-bacteria@3x.png",
+            "128": "./images/magnifier-bacteria@4x.png"
+        }
+    },
+    "commands": {
+        "show_search_bar": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+L",
+                "mac": "Command+Shift+L"
+            },
+            "description": "Show search bar"
+        }
+    },
+    "icons": {
+        "16": "./images/magnifier-bacteria@1x.png",
+        "32": "./images/magnifier-bacteria@2x.png",
+        "48": "./images/magnifier-bacteria@3x.png",
+        "128": "./images/magnifier-bacteria@4x.png"
+    },
+    "manifest_version": 2
+}

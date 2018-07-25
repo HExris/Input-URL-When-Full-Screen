@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background: transparent;
+    }
+    html,body{
+      margin: 0;
+    }
+    #changeColor {
+      width: 85px;
+      outline: none;
+      text-align: center;
+      padding: 8px 12px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+      font-family: system,-apple-system,BlinkMacSystemFont,SF UI text,PingFang SC,Hiragino Sans GB,Hiragino Sans GB W3,Roboto,思源黑体,Helvetica Neue,Helvetica,Microsoft YaHei,Arial,sans-serif;
+      font-weight: lighter!important;
+    }
+
+    .waves-ripple {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      transition: all 0.5s ease-out;
+      transition-property: transform, opacity;
+      transform: scale(0);
+      opacity: 0;
+      pointer-events: none;
+      background: rgba(0,0,0,0.1);
+    }
+    .waves-ripple.active{
+      opacity: 1;
+      transform: scale(30.1);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="changeColor">Clear History
+    <div class="waves-ripple"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
