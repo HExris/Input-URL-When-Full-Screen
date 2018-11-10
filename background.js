@@ -18,6 +18,7 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.commands.onCommand.addListener(function(command) {
     switch (command) {
       case "show_search_bar":
+      console.log('show_search_bar')
         chrome.tabs.query(
           {
             active: true,
