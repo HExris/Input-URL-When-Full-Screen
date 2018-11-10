@@ -16,6 +16,7 @@ changeColor.onclick = function(e) {
     wave.style.opacity = 0;
     window.close();
   }, 750);
+  
   // browser toast
   chrome.tabs.query(
     {
