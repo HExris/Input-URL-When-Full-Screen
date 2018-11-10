@@ -218,6 +218,12 @@ chrome.runtime.onInstalled.addListener(() => {
                             indexControler(2)
                             console.log('→')
                             break;
+                            // Tab
+                            case 9:
+                            e.preventDefault()
+                            indexControler(2)
+                            console.log('Tab')
+                            break;
                           }
                         }
                       }
