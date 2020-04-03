@@ -119,8 +119,9 @@ chrome.runtime.onInstalled.addListener(() => {
                         setTimeout(() => {
                           
                           document.getElementById("__chrome_spolight_input").focus();
-                          document.getElementById("__chrome_spolight_input").addEventListener("keydown", function(e){
+                          document.body.addEventListener("keydown", function(e){
                             ListenerManager(e)
+                            console.log('ListenerManager is working')
                           })
                           document.getElementById("__chrome_spolight_input").addEventListener("input", function(e){
                             inputListener(e)
@@ -128,6 +129,7 @@ chrome.runtime.onInstalled.addListener(() => {
                         }, 10);
 
                         function ListenerManager(e){
+                          console.log('ListenerManager Args',e)
                           enterListener(e)
                           escapeListener(e)
                           directionListener(e)
@@ -143,7 +145,7 @@ chrome.runtime.onInstalled.addListener(() => {
                             }
                             chrome.storage.sync.get(['urlList'], function(result) {
                               console.log('当前列表 ' + result.urlList);
-                              let newList = result.urlList.length?result.urlList:[]
+                              let newList = result.urlList && result.urlList.length?result.urlList:[]
                               let flag = true
                               newList.forEach((item)=>{
                                 if(item == url || url === 'http://' || (url.indexOf(':') === -1 && url.indexOf('.') === -1) ){
