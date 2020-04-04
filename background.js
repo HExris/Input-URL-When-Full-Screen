@@ -7,25 +7,23 @@
 chrome.runtime.onInstalled.addListener(() => {
   console.log("Spolight is installed.");
   localStorage.setItem("__chrome_spolight", 0);
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    chrome.declarativeContent.onPageChanged.addRules([
-      {
-        conditions: [new chrome.declarativeContent.PageStateMatcher({})],
-        actions: [new chrome.declarativeContent.ShowPageAction()]
-      }
-    ]);
+  chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
+    chrome.declarativeContent.onPageChanged.addRules([{
+      conditions: [new chrome.declarativeContent.PageStateMatcher({})],
+      actions: [new chrome.declarativeContent.ShowPageAction()]
+    }]);
   });
-  chrome.commands.onCommand.addListener(function(command) {
+  chrome.commands.onCommand.addListener(function (command) {
     switch (command) {
       case "show_search_bar":
-      console.log('show_search_bar')
-        chrome.tabs.query(
-          {
+        console.log('show_search_bar')
+        chrome.tabs.query({
             active: true,
             currentWindow: true
           },
-          function(tabs) {
-            chrome.tabs.executeScript(tabs[0].id, { code: `
+          function (tabs) {
+            chrome.tabs.executeScript(tabs[0].id, {
+              code: `
                       function removeInput() {
                         document.body.removeChild(document.getElementById("__chrome_spolight"));
                       }
@@ -34,16 +32,16 @@ chrome.runtime.onInstalled.addListener(() => {
                       } else {
                         let __spolight = document.createElement("div");
                         __spolight.setAttribute("id", "__chrome_spolight");
-                        __spolight.style.width = "40%";
-                        __spolight.style.minWidth = "310px";
+                        __spolight.style.width = "500px";
+                        __spolight.style.minWidth = "320px";
                         __spolight.style.padding = "10px 15px";
-                        __spolight.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+                        __spolight.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
                         __spolight.style.borderRadius = "10px";
-                        __spolight.style.boxShadow = "0 8px 35px rgba(0,0,0,0.75)";
+                        __spolight.style.boxShadow = "0 8px 35px rgba(0,0,0,0.85)";
                         __spolight.style.boxSizing = "border-box";
                         __spolight.style.position = "fixed";
                         __spolight.style.left = "50%";
-                        __spolight.style.top = "35%";
+                        __spolight.style.top = "40vh";
                         __spolight.style.transform = "translate3d(-50%,0%,0)";
                         __spolight.style.zIndex = 99999;
 
@@ -231,7 +229,8 @@ chrome.runtime.onInstalled.addListener(() => {
                         }
                       }
 
-                  ` });
+                  `
+            });
           }
         );
         break;

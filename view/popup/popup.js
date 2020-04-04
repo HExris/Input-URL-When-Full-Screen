@@ -32,13 +32,13 @@ changeColor.onclick = function(e) {
                 Toast.setAttribute("id", "__chrome_spolight_toast");
                 Toast.style.width = "180px";
                 Toast.style.height = "180px";
-                Toast.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+                Toast.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
                 Toast.style.borderRadius = "20px";
-                Toast.style.boxShadow = "0 8px 35px rgba(0,0,0,0.75)";
+                Toast.style.boxShadow = "0 8px 35px rgba(0,0,0,0.85)";
                 Toast.style.boxSizing = "border-box";
                 Toast.style.position = "fixed";
                 Toast.style.left = "50%";
-                Toast.style.top = "40%";
+                Toast.style.top = "50vh";
                 Toast.style.zIndex = 9999999;
                 Toast.style.transform = "translate3d(-50%,-50%,0)";
                 Toast.style.display = "flex";
